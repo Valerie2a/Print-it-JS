@@ -129,7 +129,6 @@ header {
 	top: 50%; /* Place les flèches verticalement au centre */
     transform: translateY(-50%); /* Centre verticalement la flèche */
     cursor: pointer; /* Ajoute un effet de pointeur pour montrer qu’elles sont cliquables */
-	z-index: 2; 
 }
 
 #banner .arrow_left {
