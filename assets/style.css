@@ -53,9 +53,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-body {
-
-}
 section {
 	margin-block: 6em;
 }
@@ -126,7 +123,7 @@ header {
 /* Gestion des fleches du carrousel */
 #banner .arrow {
 	position: absolute;
-	top: 50%; /* Place les flèches verticalement au centre */
+	top: 45%; 
     transform: translateY(-50%); /* Centre verticalement la flèche */
     cursor: pointer; /* Ajoute un effet de pointeur pour montrer qu’elles sont cliquables */
 }
