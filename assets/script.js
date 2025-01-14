@@ -26,6 +26,11 @@ function createDots() {
         if (index === 0) {
             dot.classList.add("dot_selected"); // ajout de la class dot_selected au premier point (index 0)
         }
+		// Ajoute un Event Listener pour chaque dot
+        dot.addEventListener("click", () => {
+            currentIndex = index; // Met à jour l'index actif
+            updateSlide(currentIndex); // Met à jour le carrousel
+        });
         dotsContainer.appendChild(dot);//Ajoute dynamiquement chaque élément dot dans le conteneur de dots
     });
 }
@@ -49,19 +54,23 @@ dots.forEach((dot, i) => {
 // Ajout des Event Listeners
 const arrowRight = document.querySelector(".arrow_right");
 arrowRight.addEventListener("click", () => {
-	/*if (currentIndex < slides.length - 1) {*/// avec cette condition avance seulement si on n'est pas au maximum
-        currentIndex++; //sans la condition if, affiche un message d'effeur (Uncaught TypeError: Cannot read properties of undefined (reading 'image'))
-        updateSlide(currentIndex);
+	if (currentIndex < slides.length - 1) {
+        currentIndex++;
+	} else {
+        currentIndex = 0; // Reviens à la première slide si on est à la dernière (defilement infini)
     }
-);
+		updateSlide(currentIndex);
+});
 
 const arrowLeft = document.querySelector(".arrow_left");
 arrowLeft.addEventListener("click", () => {
-	/*if (currentIndex > 0) {*///  avec cette condition recule seulement si on n'est pas au minimum
-        currentIndex--; //sans la condition if, affiche un message d'effeur (Uncaught TypeError: Cannot read properties of undefined (reading 'image'))
+	if (currentIndex > 0) {
+        currentIndex--; 
+	} else {
+        currentIndex = slides.length - 1; // Reviens à la dernière slide si on est à la première (défilement infini)
+    }	
         updateSlide(currentIndex);
-    }
-);
+});
 //Initialisation
 createDots();
 updateSlide(currentIndex);
